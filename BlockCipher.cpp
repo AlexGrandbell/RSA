@@ -14,7 +14,7 @@ void BlockCipher::encrypt() {
     }
     string line;
     while (getline(file, line)) {
-        original += line;
+        original += line + '\n';
     }
     file.close();
     cout << "原文: " << original << endl;
@@ -68,7 +68,7 @@ void BlockCipher::decrypt() {
 string BlockCipher::wordToDigital(string word) {
     string digital;
     for (char ch : word) {
-        string sm1=to_string(static_cast<int>(ch));//转为三位数
+        string sm1 = to_string(static_cast<int>(static_cast<unsigned char>(ch)));
         while (sm1.size()<3){
             sm1="2"+sm1;
         }
