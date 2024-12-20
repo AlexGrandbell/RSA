@@ -64,7 +64,7 @@ InfInt InfInt::operator/(const InfInt &num) const {
 }
 
 InfInt InfInt::operator%(const InfInt &num) const {
-    if (num.number == "0") throw invalid_argument("Modulo by zero");
+    if (num.number == "0") throw invalid_argument("除0错误");
     string dividend = number, divisor = num.number;
     if (compareAbsolute(dividend, divisor) < 0) return *this;
     string current;

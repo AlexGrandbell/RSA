@@ -4,5 +4,6 @@ int main() {
     BlockCipher blockCipher;
     blockCipher.encrypt();
     blockCipher.decrypt();
-    return 0;
+return 0;
 }
+

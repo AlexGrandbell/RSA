@@ -67,6 +67,7 @@ void BlockCipher::decrypt() {
 
 string BlockCipher::wordToDigital(string word) {
     string digital;
+    cout << "字符串大小为: "<<word.size()<<endl;
     for (char ch : word) {
         string sm1 = to_string(static_cast<int>(static_cast<unsigned char>(ch)));
         while (sm1.size()<3){

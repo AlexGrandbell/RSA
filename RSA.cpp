@@ -47,6 +47,22 @@ InfInt RSA::decrypt(InfInt afterMessage) {
     return modExp(afterMessage, d, n);;
 }
 
+void RSA::showD() {
+    cout << "p: " << p << endl;
+    cout << "q: " << q << endl;
+    cout << "n: " << n << endl;
+    cout << "m: " << m << endl;
+    cout << "e: " << e << endl;
+    cout << "d: " << d << endl;
+}
+
+//求模逆元素
+InfInt RSA::modularInverse(InfInt e, InfInt m) {
+    InfInt x, y;
+    extendedGCD(e, m, x, y);
+    return (x % m + m) % m;
+}
+
 //扩展欧几里得算法
 InfInt RSA::extendedGCD(InfInt a, InfInt b, InfInt &x, InfInt &y) {
     if (b == InfInt("0")) {
@@ -59,13 +75,6 @@ InfInt RSA::extendedGCD(InfInt a, InfInt b, InfInt &x, InfInt &y) {
     x = y1;
     y = x1 - (a / b) * y1;
     return gcd;
-}
-
-//求模反元素
-InfInt RSA::modularInverse(InfInt e, InfInt m) {
-    InfInt x, y;
-    extendedGCD(e, m, x, y);
-    return (x % m + m) % m;
 }
 
 //快速幂算法 (计算 a^b % m)
